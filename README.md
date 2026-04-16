@@ -6,13 +6,13 @@
 # 1.1 - Salvar o docker-compose em uma pasta
 mkdir -p ~/ollama-setup
 cd ~/ollama-setup
-# Copiar o arquivo docker-compose-ollama.yml aqui
+# Copiar o arquivo docker-compose.yml aqui
 
 # 1.2 - Subir o container
-docker-compose -f docker-compose-ollama.yml up -d
+docker-compose -f docker-compose.yml up -d
 
 # 1.3 - Verificar se está rodando
-docker-compose -f docker-compose-ollama.yml ps
+docker-compose -f docker-compose.yml ps
 # Output esperado: ollama-server running
 ```
 
@@ -26,7 +26,7 @@ Os melhores modelos para Claude Code (por performance/tamanho):
 
 **1. Llama 2 (7B) - Equilibrado**
 ```bash
-docker-compose -f docker-compose-ollama.yml exec ollama ollama pull llama2
+docker-compose -f docker-compose.yml exec ollama ollama pull llama2
 # Tamanho: ~4GB
 # Qualidade: ⭐⭐⭐⭐
 # Velocidade: ⭐⭐⭐⭐
@@ -34,7 +34,7 @@ docker-compose -f docker-compose-ollama.yml exec ollama ollama pull llama2
 
 **2. Mistral (7B) - Rápido e bom**
 ```bash
-docker-compose -f docker-compose-ollama.yml exec ollama ollama pull mistral
+docker-compose -f docker-compose.yml exec ollama ollama pull mistral
 # Tamanho: ~4GB
 # Qualidade: ⭐⭐⭐⭐
 # Velocidade: ⭐⭐⭐⭐⭐
@@ -42,7 +42,7 @@ docker-compose -f docker-compose-ollama.yml exec ollama ollama pull mistral
 
 **3. Neural-Chat (7B) - Otimizado para chat**
 ```bash
-docker-compose -f docker-compose-ollama.yml exec ollama ollama pull neural-chat
+docker-compose -f docker-compose.yml exec ollama ollama pull neural-chat
 # Tamanho: ~4GB
 # Qualidade: ⭐⭐⭐
 # Velocidade: ⭐⭐⭐⭐⭐
@@ -50,13 +50,13 @@ docker-compose -f docker-compose-ollama.yml exec ollama ollama pull neural-chat
 
 **4. Llama 2 Uncensored (7B) - Menos restritivo**
 ```bash
-docker-compose -f docker-compose-ollama.yml exec ollama ollama pull llama2-uncensored
+docker-compose -f docker-compose.yml exec ollama ollama pull llama2-uncensored
 # Tamanho: ~4GB
 ```
 
 **5. Code Llama (7B) - Otimizado para código! ⭐**
 ```bash
-docker-compose -f docker-compose-ollama.yml exec ollama ollama pull codellama
+docker-compose -f docker-compose.yml exec ollama ollama pull codellama
 # Tamanho: ~4GB
 # Qualidade: ⭐⭐⭐⭐ (para código)
 # Velocidade: ⭐⭐⭐⭐
@@ -64,7 +64,7 @@ docker-compose -f docker-compose-ollama.yml exec ollama ollama pull codellama
 
 **6. Qwen 2.5 Coder (14B) - Melhor para coding**
 ```bash
-docker-compose -f docker-compose-ollama.yml exec ollama ollama pull qwen2.5-coder
+docker-compose -f docker-compose.yml exec ollama ollama pull qwen2.5-coder
 # Tamanho: ~9GB
 # Qualidade: ⭐⭐⭐⭐⭐ (para código)
 # Velocidade: ⭐⭐⭐
@@ -72,7 +72,7 @@ docker-compose -f docker-compose-ollama.yml exec ollama ollama pull qwen2.5-code
 
 ### Listar modelos já baixados:
 ```bash
-docker-compose -f docker-compose-ollama.yml exec ollama ollama list
+docker-compose -f docker-compose.yml exec ollama ollama list
 ```
 
 ---
@@ -90,7 +90,7 @@ curl http://localhost:11434/api/generate -d '{
 
 ### Test 2: Entrar no container e testar
 ```bash
-docker-compose -f docker-compose-ollama.yml exec ollama bash
+docker-compose -f docker-compose.yml exec ollama bash
 
 # Dentro do container:
 ollama run mistral "Explique IA em uma sentença"
@@ -178,19 +178,19 @@ claude-local -p "escreva um hello world em python"
 
 ```bash
 # Ver logs do container
-docker-compose -f docker-compose-ollama.yml logs -f ollama
+docker-compose -f docker-compose.yml logs -f ollama
 
 # Entrar no container
-docker-compose -f docker-compose-ollama.yml exec ollama bash
+docker-compose -f docker-compose.yml exec ollama bash
 
 # Parar o Ollama
-docker-compose -f docker-compose-ollama.yml stop
+docker-compose -f docker-compose.yml stop
 
 # Parar e remover (zera tudo)
-docker-compose -f docker-compose-ollama.yml down
+docker-compose -f docker-compose.yml down
 
 # Retirar o volume também (atenção: deleta modelos)
-docker-compose -f docker-compose-ollama.yml down -v
+docker-compose -f docker-compose.yml down -v
 
 # Ver uso de espaço do container
 docker exec ollama du -sh /root/.ollama
@@ -222,12 +222,12 @@ deploy:
 
 3. **Subir novamente:**
 ```bash
-docker-compose -f docker-compose-ollama.yml up -d
+docker-compose -f docker-compose.yml up -d
 ```
 
 4. **Verificar se GPU está sendo usada:**
 ```bash
-docker-compose -f docker-compose-ollama.yml exec ollama nvidia-smi
+docker-compose -f docker-compose.yml exec ollama nvidia-smi
 ```
 
 ---
@@ -237,13 +237,13 @@ docker-compose -f docker-compose-ollama.yml exec ollama nvidia-smi
 **Problema: "Connection refused" ao conectar Claude Code**
 ```bash
 # Verificar se está rodando:
-docker-compose -f docker-compose-ollama.yml ps
+docker-compose -f docker-compose.yml ps
 
 # Testar a conexão:
 curl http://localhost:11434/api/tags
 
 # Se não responder, reiniciar:
-docker-compose -f docker-compose-ollama.yml restart ollama
+docker-compose -f docker-compose.yml restart ollama
 ```
 
 **Problema: Modelo muito lento**
@@ -257,7 +257,7 @@ docker-compose -f docker-compose-ollama.yml restart ollama
 docker exec ollama du -sh /root/.ollama/*
 
 # Remover um modelo:
-docker-compose -f docker-compose-ollama.yml exec ollama ollama rm mistral
+docker-compose -f docker-compose.yml exec ollama ollama rm mistral
 ```
 
 ---
@@ -266,10 +266,10 @@ docker-compose -f docker-compose-ollama.yml exec ollama ollama rm mistral
 
 ```bash
 # 1. Subir
-docker-compose -f docker-compose-ollama.yml up -d
+docker-compose -f docker-compose.yml up -d
 
 # 2. Baixar modelo (recomendado: mistral ou codellama)
-docker-compose -f docker-compose-ollama.yml exec ollama ollama pull mistral
+docker-compose -f docker-compose.yml exec ollama ollama pull mistral
 
 # 3. Configurar Claude Code
 export ANTHROPIC_BASE_URL="http://localhost:11434"
