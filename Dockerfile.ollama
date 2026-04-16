@@ -1,0 +1,36 @@
+FROM ollama/ollama:latest
+
+# Instalar ferramentas adicionais úteis
+RUN apt-get update && apt-get install -y \
+    curl \
+    wget \
+    git \
+    vim \
+    nano \
+    htop \
+    && rm -rf /var/lib/apt/lists/*
+
+# Expor porta
+EXPOSE 11434
+
+# Variáveis de ambiente padrão
+ENV OLLAMA_HOST=0.0.0.0:11434
+
+# Volume para persistir modelos
+VOLUME ["/root/.ollama"]
+
+# Healthcheck
+HEALTHCHECK --interval=30s --timeout=10s --start-period=40s --retries=3 \
+    CMD curl -f http://localhost:11434/api/tags || exit 1
+
+# Comando padrão
+CMD ["ollama", "serve"]
+
+# ====================================
+# NOTAS DE USO:
+# ====================================
+# Build: docker build -t ollama-custom .
+# Run:   docker run -d -p 11434:11434 -v ollama_data:/root/.ollama ollama-custom
+#
+# Com GPU NVIDIA:
+# docker run -d --gpus all -p 11434:11434 -v ollama_data:/root/.ollama ollama-custom
