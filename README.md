@@ -1,6 +1,11 @@
+# Funcionamento:
+Container com llama + solicitações python para ele, que retorna via cli uma resposta.
+
+
+
 # Guia Completo: Ollama em Container + Claude Code
 
-## 📦 PASSO 1: Subir o Ollama
+##  PASSO 1: Subir o Ollama
 
 ```bash
 # 1.1 - Salvar o docker-compose em uma pasta
@@ -18,7 +23,7 @@ docker-compose -f docker-compose.yml ps
 
 ---
 
-## 🤖 PASSO 2: Baixar um Modelo
+##  PASSO 2: Baixar um Modelo
 
 Os melhores modelos para Claude Code (por performance/tamanho):
 
@@ -147,7 +152,7 @@ claude-local -p "seu prompt aqui"
 
 ---
 
-## 🚀 PASSO 5: Usar Claude Code com Ollama
+##  PASSO 5: Usar Claude Code com Ollama
 
 ```bash
 # Instalar Claude Code (se ainda não tem)
@@ -162,7 +167,7 @@ claude-local -p "escreva um hello world em python"
 
 ---
 
-## 📊 Comparação de Modelos
+##  Comparação de Modelos
 
 | Modelo | Tamanho | Velocidade | Qualidade | Uso Ideal |
 |--------|---------|-----------|-----------|-----------|
@@ -174,7 +179,7 @@ claude-local -p "escreva um hello world em python"
 
 ---
 
-## ⚙️ Comandos Úteis
+##  Comandos Úteis
 
 ```bash
 # Ver logs do container
@@ -198,7 +203,7 @@ docker exec ollama du -sh /root/.ollama
 
 ---
 
-## 🔧 GPU Support (NVIDIA)
+##  GPU Support (NVIDIA)
 
 Se você tem uma GPU NVIDIA e quer acelerar:
 
@@ -232,7 +237,7 @@ docker-compose -f docker-compose.yml exec ollama nvidia-smi
 
 ---
 
-## 🐛 Troubleshooting
+##  Troubleshooting
 
 **Problema: "Connection refused" ao conectar Claude Code**
 ```bash
@@ -262,7 +267,7 @@ docker-compose -f docker-compose.yml exec ollama ollama rm mistral
 
 ---
 
-## 📝 Resumo Rápido
+##  Resumo Rápido
 
 ```bash
 # 1. Subir
@@ -281,4 +286,4 @@ claude -p "seu prompt aqui"
 
 ---
 
-**Sucesso! 🚀 Agora você tem Claude Code rodando localmente de graça!**
+**Sucesso!  Agora você tem Claude Code rodando localmente de graça!**
