@@ -1,4 +1,4 @@
-# Guia Completo: Ollama em Container + Claude Code
+# Ollama em Container + Claude Code
 
 ##  PASSO 1: Subir o Ollama
 
