@@ -1,5 +1,11 @@
 # Ollama em Container + Claude Code
 
+## Principais vantagens 
+
+- Privacidade: Toda inferência acontece dentro do container Docker na sua máquina. Nenhum prompt, arquivo ou resposta sai do seu computador — zero dependência de servidores externos. Ideal para código proprietário, dados sensíveis ou documentos confidenciais.
+
+- Offline: Baixou o modelo uma vez, tem IA funcionando em qualquer lugar: avião, metrô, zona rural, área remota, aulas de campo, ou locais com restrição de rede (ambientes militares, salas-cofre, laboratórios). Não precisa nem de WiFi — o ollama-manager.sh + Docker rodam tudo localmente. Além disso, você não sofre com quedas de internet, latência de rede ou limites de taxa de API.
+
 ##  PASSO 1: Subir o Ollama
 
 ```bash
