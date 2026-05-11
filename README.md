@@ -82,7 +82,7 @@ docker-compose -f docker-compose.yml exec ollama ollama list
 
 ---
 
-## 🧪 PASSO 3: Testar o Ollama
+## PASSO 3: Testar o Ollama
 
 ### Test 1: Via curl
 ```bash
@@ -104,7 +104,7 @@ ollama run mistral "Explique IA em uma sentença"
 
 ---
 
-## 🔗 PASSO 4: Conectar com Claude Code
+## PASSO 4: Conectar com Claude Code
 
 ### Opção 1: Permanente (arquivo .bashrc ou .zshrc)
 
