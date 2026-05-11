@@ -1,8 +1,3 @@
-# Funcionamento:
-Container com llama + solicitações python para ele, que retorna via cli uma resposta.
-
-
-
 # Guia Completo: Ollama em Container + Claude Code
 
 ##  PASSO 1: Subir o Ollama
